@@ -22,10 +22,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-//@SpringBootApplication
-@Configuration
+@SpringBootApplication
+/*@Configuration
 @EnableWebMvc
-@EnableAutoConfiguration
+@EnableAutoConfiguration*/
 public class LEBootApplication {
 
 	public static void main(String[] args) throws Exception {
