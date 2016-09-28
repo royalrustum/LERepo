@@ -31,6 +31,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-thymeleaf</artifactId> 
 			</dependency> <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-validator</artifactId> 
@@ -41,11 +47,8 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- <dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<scope>provided</scope>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.apache.tomcat.embed</groupId> <artifactId>tomcat-embed-jasper</artifactId> 
+			<scope>provided</scope> </dependency> -->
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -54,35 +57,17 @@
 		</dependency>
 
 		<!-- GAE Dependencies -->
-		<!-- <dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-1.0-sdk</artifactId>
-			<version>${appengine.sdk.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>${guava.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.objectify</groupId>
-			<artifactId>objectify</artifactId>
-			<version>${objectify.version}</version> 
-		</dependency> -->
+		<!-- <dependency> <groupId>com.google.appengine</groupId> <artifactId>appengine-api-1.0-sdk</artifactId> 
+			<version>${appengine.sdk.version}</version> </dependency> <dependency> <groupId>com.google.guava</groupId> 
+			<artifactId>guava</artifactId> <version>${guava.version}</version> </dependency> 
+			<dependency> <groupId>com.googlecode.objectify</groupId> <artifactId>objectify</artifactId> 
+			<version>${objectify.version}</version> </dependency> -->
 
 		<!-- GAE Test Dependencies -->
-		<!-- <dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-testing</artifactId>
-			<version>${appengine.sdk.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-stubs</artifactId>
-			<version>${appengine.sdk.version}</version>
-			<scope>test</scope>
-		</dependency> -->
+		<!-- <dependency> <groupId>com.google.appengine</groupId> <artifactId>appengine-testing</artifactId> 
+			<version>${appengine.sdk.version}</version> <scope>test</scope> </dependency> 
+			<dependency> <groupId>com.google.appengine</groupId> <artifactId>appengine-api-stubs</artifactId> 
+			<version>${appengine.sdk.version}</version> <scope>test</scope> </dependency> -->
 	</dependencies>
 	<build>
 		<plugins>
@@ -131,36 +116,24 @@
 				</configuration>
 			</plugin>
 
-			<!-- <plugin>
-				<groupId>com.google.appengine</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>${appengine.sdk.version}</version>
-				<configuration>
-					<enableJarClasses>false</enableJarClasses>
-					Comment in the below snippet to bind to all IPs instead of just 
-						localhost
-					address>0.0.0.0</address> <port>8080</port
-					Comment in the below snippet to enable local debugging with a remote 
-						debugger like those included with Eclipse or IntelliJ
-					jvmFlags> <jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag> 
-						</jvmFlags
-					<version>${appengine.app.version}</version>
-				</configuration>
-			</plugin> -->
+			<!-- <plugin> <groupId>com.google.appengine</groupId> <artifactId>appengine-maven-plugin</artifactId> 
+				<version>${appengine.sdk.version}</version> <configuration> <enableJarClasses>false</enableJarClasses> 
+				Comment in the below snippet to bind to all IPs instead of just localhost 
+				address>0.0.0.0</address> <port>8080</port Comment in the below snippet to 
+				enable local debugging with a remote debugger like those included with Eclipse 
+				or IntelliJ jvmFlags> <jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag> 
+				</jvmFlags <version>${appengine.app.version}</version> </configuration> </plugin> -->
 
-			<!-- <plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.3.7.v20160115</version>
-			</plugin> -->
-			
+			<!-- <plugin> <groupId>org.eclipse.jetty</groupId> <artifactId>jetty-maven-plugin</artifactId> 
+				<version>9.3.7.v20160115</version> </plugin> -->
+
 			<plugin>
-			      <artifactId>maven-war-plugin</artifactId>
-			      <version>2.6</version>
-			      <configuration>
-				  <warName>ROOT</warName>
-			      </configuration>
-          		</plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<warName>ROOT</warName>
+				</configuration>
+			</plugin>
 		</plugins>
 
 		<pluginManagement>
