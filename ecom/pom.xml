@@ -67,8 +67,8 @@
 		<dependency>
 			<groupId>com.googlecode.objectify</groupId>
 			<artifactId>objectify</artifactId>
-			<version>${objectify.version}</version> -->
-		</dependency>
+			<version>${objectify.version}</version> 
+		</dependency> -->
 
 		<!-- GAE Test Dependencies -->
 		<!-- <dependency>
