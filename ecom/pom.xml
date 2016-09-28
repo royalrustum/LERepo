@@ -41,11 +41,11 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -148,11 +148,11 @@
 				</configuration>
 			</plugin> -->
 
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.3.7.v20160115</version>
-			</plugin>
+			</plugin> -->
 			
 			<plugin>
 			      <artifactId>maven-war-plugin</artifactId>
