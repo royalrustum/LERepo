@@ -25,11 +25,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
-@ComponentScan
+//@ComponentScan
 /*@Configuration
 @EnableWebMvc
 @EnableAutoConfiguration*/
-public class LEBootApplication extends SpringBootServletInitializer  {
+public class LEBootApplication   {
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(LEBootApplication.class, args);

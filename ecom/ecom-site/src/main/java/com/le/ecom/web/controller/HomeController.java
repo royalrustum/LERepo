@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 	
-	public String LandingPage = "home";
+	public String LandingPage = "index";
 	
 	public Logger logger = LoggerFactory.getLogger(getClass().getName());
 	
