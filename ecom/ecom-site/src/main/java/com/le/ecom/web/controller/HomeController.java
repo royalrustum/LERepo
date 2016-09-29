@@ -10,19 +10,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 	
-	public String LandingPage = "index";
+	public String LandingPage = "home";
 	
 	public Logger logger = LoggerFactory.getLogger(getClass().getName());
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView landingPage() {
 		System.out.println(">>");
-		logger.debug(">>");
 		
 		ModelAndView modelView = new ModelAndView();
 		modelView.setViewName(LandingPage);
 		
-		logger.debug("<<");
 		System.out.println("<<");
 		return modelView;
 	}

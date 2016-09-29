@@ -11,10 +11,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-public class MVCConfig extends WebMvcConfigurerAdapter {
+public class MVCConfig  extends WebMvcConfigurerAdapter { 
 
-	private final String ViewPrefix = "/static/";
-	private final String ViewSuffix = ".html";
+	private final String ViewPrefix = "/WEB-INF/views/jsp/";
+	private final String ViewSuffix = ".jsp";
 	
 	@Bean
 	public ViewResolver getViewResolver() {
@@ -32,6 +32,7 @@ public class MVCConfig extends WebMvcConfigurerAdapter {
 	
 	 @Override
 	    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		 super.addResourceHandlers(registry);
 	        registry.addResourceHandler("/**").addResourceLocations("/static/");
 	    }
 }

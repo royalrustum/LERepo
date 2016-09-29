@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<parent>
 		<!-- Your own application should inherit from spring-boot-starter-parent -->
 		<groupId>com.le</groupId>
@@ -40,11 +41,10 @@
 									<goal>copy-resources</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${basedir}/target/ecom-site-0.0.1-SNAPSHOT/WEB-INF/classes/</outputDirectory>
+									<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
 									<resources>
 										<resource>
 											<directory>${basedir}/target/classes</directory>
-
 										</resource>
 									</resources>
 								</configuration>
@@ -53,8 +53,6 @@
 					</plugin>
 				</plugins>
 			</build>
-
 		</profile>
 	</profiles>
-
 </project>

@@ -24,11 +24,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-@SpringBootApplication
 //@ComponentScan
 /*@Configuration
 @EnableWebMvc
 @EnableAutoConfiguration*/
+@SpringBootApplication
 public class LEBootApplication   {
 
 	public static void main(String[] args) throws Exception {
