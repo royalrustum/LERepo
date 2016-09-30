@@ -22,44 +22,39 @@
 
 	<profiles>
 		<profile>
-			<id>prod</id>
+			<id>wildfly</id>
 
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
 
 			<properties>
+
 				<java.version>1.7</java.version>
-
-				<!-- <appengine.app.version>1</appengine.app.version> <appengine.sdk.version>1.9.42</appengine.sdk.version> 
-					<objectify.version>5.1.5</objectify.version> <guava.version>18.0</guava.version> -->
-
-				<!-- <start-class>LEBootApplication</start-class> -->
-
 				<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 				<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+				<start-class>com.le.ecom.web.LEBootApplicationWildfly</start-class>
+
 			</properties>
 
 			<dependencies>
 				<dependency>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-web</artifactId>
-					<!-- <exclusions> <exclusion> <groupId>org.springframework.boot</groupId> 
-						<artifactId>spring-boot-starter-tomcat</artifactId> </exclusion> </exclusions> -->
+					<exclusions>
+						<exclusion>
+							<groupId>org.springframework.boot</groupId>
+							<artifactId>spring-boot-starter-tomcat</artifactId>
+						</exclusion>
+					</exclusions>
 				</dependency>
-
-				<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-thymeleaf</artifactId> 
-					</dependency> <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-validator</artifactId> 
-					</dependency> -->
 
 				<dependency>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-test</artifactId>
 					<scope>test</scope>
 				</dependency>
-
-				<!-- <dependency> <groupId>org.apache.tomcat.embed</groupId> <artifactId>tomcat-embed-jasper</artifactId> 
-					<scope>provided</scope> </dependency> -->
 
 				<dependency>
 					<groupId>javax.servlet</groupId>
@@ -68,37 +63,17 @@
 				</dependency>
 
 				<dependency>
-					<groupId>org.apache.tomcat.embed</groupId>
-					<artifactId>tomcat-embed-jasper</artifactId>
-					<scope>provided</scope>
-				</dependency>
-
-				<dependency>
 					<groupId>javax.servlet</groupId>
 					<artifactId>servlet-api</artifactId>
 					<version>2.5</version>
-					<!-- <scope>provided</scope> -->
+					<scope>provided</scope>
 				</dependency>
-
-				<!-- GAE Dependencies -->
-				<!-- <dependency> <groupId>com.google.appengine</groupId> <artifactId>appengine-api-1.0-sdk</artifactId> 
-					<version>${appengine.sdk.version}</version> </dependency> <dependency> <groupId>com.google.guava</groupId> 
-					<artifactId>guava</artifactId> <version>${guava.version}</version> </dependency> 
-					<dependency> <groupId>com.googlecode.objectify</groupId> <artifactId>objectify</artifactId> 
-					<version>${objectify.version}</version> </dependency> -->
-
-				<!-- GAE Test Dependencies -->
-				<!-- <dependency> <groupId>com.google.appengine</groupId> <artifactId>appengine-testing</artifactId> 
-					<version>${appengine.sdk.version}</version> <scope>test</scope> </dependency> 
-					<dependency> <groupId>com.google.appengine</groupId> <artifactId>appengine-api-stubs</artifactId> 
-					<version>${appengine.sdk.version}</version> <scope>test</scope> </dependency> -->
 			</dependencies>
 
 			<build>
 				<plugins>
 					<!-- <plugin> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-maven-plugin</artifactId> 
-						<dependencies> <dependency> <groupId>org.springframework</groupId> <artifactId>springloaded</artifactId> 
-						<version>1.1.5.RELEASE</version> </dependency> </dependencies> </plugin> -->
+						</plugin> -->
 
 					<plugin>
 						<artifactId>maven-compiler-plugin</artifactId>
@@ -108,12 +83,6 @@
 						</configuration>
 					</plugin>
 
-					<!-- for hot reload of the web application -->
-					<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>versions-maven-plugin</artifactId> 
-						<version>2.1</version> <executions> <execution> <phase>compile</phase> <goals> 
-						<goal>display-dependency-updates</goal> <goal>display-plugin-updates</goal> 
-						</goals> </execution> </executions> </plugin> -->
-
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-war-plugin</artifactId>
@@ -121,24 +90,8 @@
 						<configuration>
 							<archiveClasses>true</archiveClasses>
 							<warName>ROOT</warName>
-							<!-- <webResources> in order to interpolate version from pom into 
-								appengine-web.xml <resource> <directory>${basedir}/src/main/webapp/WEB-INF</directory> 
-								<filtering>true</filtering> <targetPath>WEB-INF</targetPath> </resource> 
-								</webResources> -->
 						</configuration>
 					</plugin>
-
-					<!-- <plugin> <groupId>com.google.appengine</groupId> <artifactId>appengine-maven-plugin</artifactId> 
-						<version>${appengine.sdk.version}</version> <configuration> <enableJarClasses>false</enableJarClasses> 
-						Comment in the below snippet to bind to all IPs instead of just localhost 
-						address>0.0.0.0</address> <port>8080</port Comment in the below snippet to 
-						enable local debugging with a remote debugger like those included with Eclipse 
-						or IntelliJ jvmFlags> <jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag> 
-						</jvmFlags <version>${appengine.app.version}</version> </configuration> </plugin> -->
-
-					<!-- <plugin> <groupId>org.eclipse.jetty</groupId> <artifactId>jetty-maven-plugin</artifactId> 
-						<version>9.3.7.v20160115</version> </plugin> -->
-
 
 				</plugins>
 
@@ -181,28 +134,120 @@
 				<module>ecom-site</module>
 			</modules>
 
-			<!-- <repositories> <repository> <id>spring-snapshots</id> <name>Spring 
-				Snapshots</name> <url>http://repo.spring.io/snapshot</url> <snapshots> <enabled>true</enabled> 
-				</snapshots> </repository> <repository> <id>spring-milestones</id> <name>Spring 
-				Milestones</name> <url>http://repo.spring.io/milestone</url> <snapshots> 
-				<enabled>false</enabled> </snapshots> </repository> </repositories> <pluginRepositories> 
-				<pluginRepository> <id>spring-snapshots</id> <name>Spring Snapshots</name> 
-				<url>http://repo.spring.io/snapshot</url> <snapshots> <enabled>true</enabled> 
-				</snapshots> </pluginRepository> <pluginRepository> <id>spring-milestones</id> 
-				<name>Spring Milestones</name> <url>http://repo.spring.io/milestone</url> 
-				<snapshots> <enabled>false</enabled> </snapshots> </pluginRepository> </pluginRepositories> -->
 		</profile>
 
 		<profile>
 
-			<id>dev</id>
+			<id>tomcat</id>
 
 			<activation>
-				<activeByDefault>true</activeByDefault>
+				<activeByDefault>false</activeByDefault>
 			</activation>
 
-			<!-- <dependencies> <dependency> <groupId>org.springframework.boot</groupId> 
-				<artifactId>spring-boot-starter-tomcat</artifactId> </dependency> </dependencies> -->
+			<properties>
+
+				<java.version>1.7</java.version>
+				<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+				<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+				<start-class>com.le.ecom.web.LEBootApplicationTomcat</start-class>
+			</properties>
+
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-web</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-test</artifactId>
+					<scope>test</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>javax.servlet</groupId>
+					<artifactId>jstl</artifactId>
+					<scope>provided</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+					<version>2.5</version>
+					<scope>provided</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.apache.tomcat.embed</groupId>
+					<artifactId>tomcat-embed-jasper</artifactId>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+
+			<build>
+				<plugins>
+					<!-- <plugin> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-maven-plugin</artifactId> 
+						</plugin> -->
+
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<configuration>
+							<source>1.7</source>
+							<target>1.7</target>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.6</version>
+						<configuration>
+							<archiveClasses>true</archiveClasses>
+							<warName>ROOT</warName>
+						</configuration>
+					</plugin>
+
+				</plugins>
+
+				<pluginManagement>
+					<plugins>
+						<!--This plugin's configuration is used to store Eclipse m2e settings 
+							only. It has no influence on the Maven build itself. -->
+						<plugin>
+							<groupId>org.eclipse.m2e</groupId>
+							<artifactId>lifecycle-mapping</artifactId>
+							<version>1.0.0</version>
+							<configuration>
+								<lifecycleMappingMetadata>
+									<pluginExecutions>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.codehaus.mojo</groupId>
+												<artifactId>aspectj-maven-plugin</artifactId>
+												<versionRange>[1.0,)</versionRange>
+												<goals>
+													<goal>test-compile</goal>
+													<goal>compile</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<execute />
+											</action>
+										</pluginExecution>
+									</pluginExecutions>
+								</lifecycleMappingMetadata>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+
+				<!-- <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory> -->
+			</build>
+
+			<modules>
+				<module>ecom-site</module>
+			</modules>
 
 		</profile>
 
