@@ -7,6 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
+		<config>java:com.le.ecom.web.LEBootApplicationTomcat</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

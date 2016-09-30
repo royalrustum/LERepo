@@ -18,10 +18,10 @@
 
 	<profiles>
 		<profile>
-			<id>prod</id>
+			<id>tomcat</id>
 			
 			<activation>
-				<activeByDefault>true</activeByDefault>
+				<activeByDefault>false</activeByDefault>
 			</activation>
 			
 			<properties>
