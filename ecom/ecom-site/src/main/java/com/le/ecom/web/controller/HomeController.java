@@ -12,6 +12,8 @@ public class HomeController {
 	
 	public String LandingPage = "home";
 	
+	public String LandingPage1 = "home1";
+	
 	public Logger logger = LoggerFactory.getLogger(getClass().getName());
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
@@ -20,6 +22,17 @@ public class HomeController {
 		
 		ModelAndView modelView = new ModelAndView();
 		modelView.setViewName(LandingPage);
+		
+		System.out.println("<<");
+		return modelView;
+	}
+	
+	@RequestMapping(value="/home1", method=RequestMethod.GET)
+	public ModelAndView landingPage1() {
+		System.out.println(">>");
+		
+		ModelAndView modelView = new ModelAndView();
+		modelView.setViewName(LandingPage1);
 		
 		System.out.println("<<");
 		return modelView;
