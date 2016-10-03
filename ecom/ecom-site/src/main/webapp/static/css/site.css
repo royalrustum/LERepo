@@ -52,6 +52,25 @@ a {
     margin-top: 20px;
 }
 
+.siteThemeColor {
+	border-color: #e7e7e7;
+	background-color: #007bc4;
+	color: white;
+}
+
+.siteBlueColor {
+	color: #007bc4;
+}
+
+.sitePadding {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.siteMarginLeft {
+	margin-left:5px;
+}
+
 /* Carousel Styles */
 .carousel-indicators .active {
     background-color: #2980b9;
@@ -117,7 +136,7 @@ a {
 /* Carousel Header Styles */
 .header-text {
     position: absolute;
-    top: 10%;
+    top: 0%;
     left: 2%;
     right: auto;
     width: 96.66666666666666%;
@@ -137,4 +156,3 @@ a {
 	background-color: white;
 	padding: 15px;
 }
-
